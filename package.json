@@ -1,0 +1,11 @@
+{
+    "name": "stackoverflow-jobs-ranking",
+    "description": "Search stackoverflow jobs and rank them by technology",
+    "version": "0.0.1",
+    "author": {
+        "name": "César Loachamin",
+        "email": "cesar.loachamin@gmail.com"
+    },
+    "repository": "https://github.com/cesarloachamin/stackoverflow-jobs-ranking",
+    "license": "MIT"
+}
