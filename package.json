@@ -7,5 +7,18 @@
         "email": "cesar.loachamin@gmail.com"
     },
     "repository": "https://github.com/cesarloachamin/stackoverflow-jobs-ranking",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.2",
+        "request": "^2.88.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.2.2",
+        "@babel/preset-env": "^7.2.3"
+    },
+    "scripts": {
+        "build": "babel src -d build",
+        "start": "npm run build && node build/main.js"
+    }
 }
