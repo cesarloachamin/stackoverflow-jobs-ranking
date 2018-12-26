@@ -1,3 +1,6 @@
-import Requester from './requester';
+import requester from './requester';
 
-console.log('html: ' + Requester.fetch({ query: 'Java', remote: true }));
+requester({ query: 'Java', remote: true }).then(html => console.log(html));
+
+
+
