@@ -2,26 +2,29 @@ import request from 'request';
 
 const baseUrl = 'https://stackoverflow.com/jobs';
 
-export default function (parameters) {
-    const query = createQueryString(parameters);
-    const url = `${baseUrl}?${query}`;
-    console.debug(`Request GET to url ${url}`);
-    return new Promise((resolve, reject) =>
-        request(url, (error, response, body) => {
-            if (error) reject(error);
-            resolve(body);
-        }));
-};
+export default class Requester {
 
-const createQueryString= (parameters) => {
-    const query = [];
-    if (parameters.query) {
-        query.push(`q=${parameters.query}`);
+    constructor(configuration) {
+        this.generateUrlFrom(configuration);
     }
-    if (parameters.remote) {
-        query.push(`r=${parameters.remote}`);
+
+    generateUrlFrom(configuration) {
+        const query = [];
+        if (configuration.query) {
+            query.push(`q=${configuration.query}`);
+        }
+        if (configuration.remote) {
+            query.push(`r=${configuration.remote}`);
+        }
+        const querystring = query.join('&');
+        this._url = `${baseUrl}?${querystring}`;
     }
-    return query.join('&');
-};
 
-
+    fetch() {
+        return new Promise((resolve, reject) =>
+            request(this._url, (error, response, body) => {
+                if (error) reject(error);
+                resolve(body);
+            }));
+    }
+}

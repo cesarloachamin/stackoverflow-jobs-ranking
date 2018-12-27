@@ -21,7 +21,7 @@
     },
     "scripts": {
         "build": "babel src -d build",
-        "test": "npm run build && jasmine --config=jasmine.json",
+        "test": "npm run build && jasmine --config=jasmine.json --random=true",
         "test:watch": "nodemon -w src --exec npm test",
         "start": "npm run build && node build/main.js"
     }
