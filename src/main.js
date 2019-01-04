@@ -1,6 +1,7 @@
-import requester from './requester';
+import Requester from "./requester";
 
-requester({ query: 'Java', remote: true }).then(html => console.log(html));
+const requester = new Requester({ query: 'Java', remote: true });
+requester.fetch().then(html => console.log(html));
 
 
 
