@@ -57,6 +57,7 @@ describe('Processor test', function () {
         expect(job.date).toEqual('7h ago');
         expect(job.perks).toEqual(['Remote']);
         expect(job.tags).toEqual(['java', 'accounting', 'spring-boot', 'mariadb']);
+        expect(job.url).toEqual('https://stackoverflow.com/jobs/226911/senior-java-backend-developer-with-accounting-viabill-a-s?a=1e68dsoYR2us&so=i&pg=1&offset=1&total=968')
     });
 
     it('should process the html from the requester', async () => {
@@ -68,4 +69,5 @@ describe('Processor test', function () {
         expect(jobs).toBeDefined();
         expect(jobs.length).toBeGreaterThan(1);
     });
+
 });

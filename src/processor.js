@@ -23,7 +23,8 @@ export default class Processor {
             company: this.text(element.find('div.-company>span')),
             date: this.text(element.find('div.-title>span')),
             perks: this.items(element.find('div.-perks>span')),
-            tags: this.items(element.find('div.-tags>a'))
+            tags: this.items(element.find('div.-tags>a')),
+            url: `https://stackoverflow.com${element.find('h2>a').attr('href')}`
     }
     }
 

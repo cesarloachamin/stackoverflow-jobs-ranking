@@ -1,7 +1,13 @@
-import Requester from "./requester";
+import Requester from './requester';
+import Processor from './processor';
+import Ranker from "./ranker";
 
-const requester = new Requester({ query: 'Java', remote: true });
-requester.fetch().then(html => console.log(html));
+const processor = new Processor(new Requester({query: 'docker', remote: true}));
+processor.processJobs()
+    .then(jobs => new Ranker(jobs))
+    .then(ranker => console.log(ranker.getRankedTags()));
+
+
 
 
 

@@ -21,6 +21,7 @@ export default class Requester {
     }
 
     fetch() {
+        console.log(`Fetching from url: ${this._url}`);
         return new Promise((resolve, reject) =>
             request(this._url, (error, response, body) => {
                 if (error) reject(error);
